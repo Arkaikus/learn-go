@@ -1,0 +1,12 @@
+name: "learn_go"
+services:
+  app:
+    entrypoint:
+      - sleep
+      - infinity
+    image: golang:latest
+    init: true
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
