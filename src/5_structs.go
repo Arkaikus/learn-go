@@ -5,10 +5,10 @@ import "fmt"
 // In this script we'll review how to approach OOP with structs in golang
 // - golang doesn't have classes, but it has structs
 // - structs are declared with the 'type' keyword
+// - structs should define fields
 // - structs can have methods
-// - structs can have fields
-// - structs can have embedded structs
-// - structs can have interfaces
+// - structs can have structs as fields (composition)
+// - structs can implement interfaces (more on this later)
 // for now we'll focus on this example
 
 type person struct {
@@ -27,11 +27,12 @@ func (p person) greet() {
 	fmt.Println("Hello, my name is", p.name, "and I am", p.age)
 }
 
-// usually if you use (p person) go will create a copy of the struct instance
-// to avoid this you should use a pointer to access the self values
-// func (p person) setAge(age int) { // p is a copy of the struct instance, different memory address
-func (p *person) setAge(age int) { // p is a pointer to the struct instance, same memory address
-	p.age = age
+// if you want to implement a setter method you should use pointers to access the self values in memory
+// if not go will create a copy of the struct instance and the changes will be applied to the copy
+// e.g func (self person) setAge(age int) { // (self person) would be a copy of the instance, different memory address
+func (self *person) setAge(age int) { // (self *person) is a pointer to the instance, same memory address
+	// if you compare it with python then it will be like 'def setAge(self: person, age): self.age = age'
+	self.age = age
 }
 
 // you could also override the default print format with
