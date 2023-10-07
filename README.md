@@ -7,8 +7,10 @@ Crash course with scripts and notes to learn Go.
 - [Hello World](src/1_hello_world.go)
 - [Variables and Types](src/2_variables.go)
 - [Functions](src/3_func.go)
-- [Structs](src/4_structs.go)
-- [Go Routines](src/5_goroutines.1.go)
+- [Loops](src/4_loops.go)
+- [Structs](src/5_structs.go)
+- [Go Routines](src/6_goroutines.1.go)
+- [Interfaces](src/7_interfaces.go)
 
 # Install Go
 
