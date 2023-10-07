@@ -84,4 +84,25 @@ func main() {
 	fmt.Println(*intPointer) // access the value in the &integer address
 	fmt.Println(intArray, intSlice)
 	fmt.Println(intMap)
+
+	// built-in functions
+	// len() returns the length of a string, array, slice, or map
+	fmt.Println(len(stringvar), len(intArray), len(intSlice), len(intMap))
+
+	// cap() returns the capacity of a slice
+	fmt.Println(cap(intSlice))
+
+	// append() adds an element to a slice
+	intSlice = append(intSlice, 7)
+	fmt.Println(intSlice)
+
+	// make() can create a slice, map or channel with a given length and capacity
+	// make(type, length, capacity)
+	// make([]int, 3, 5) // slice of int with length 3 and capacity 5
+	// make(map[string]int, 3) // map of string:int with length 3
+	// make(chan int, 3) // channel of int with length 3 (more on this later)
+	intSlice2 := make([]int, 3, 5)
+	fmt.Println(intSlice2)
+	map2 := make(map[string]int, 3)
+	fmt.Println(map2)
 }
