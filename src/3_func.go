@@ -1,7 +1,10 @@
 // go run 2_vars.go
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // In this script we'll see how to declare functions
 // - a function is declared with the 'func' keyword.
@@ -18,6 +21,22 @@ import "fmt"
 // it doesn't return anything
 func my_function(param string) {
 	fmt.Println(param)
+}
+
+// you can pass multiple parameters of the same type like this
+func my_function2(param1, param2 string) {
+	fmt.Println(param1, param2)
+}
+
+// you can also pass an indeterminate number of parameters of the same type like this
+func my_function3(params ...string) {
+	fmt.Println(strings.Join(params, " "))
+}
+
+// you can return named values like this
+func my_function4(param string) (result string) {
+	result = param // you can assign the value to the named return value
+	return         // this will return the named return value
 }
 
 func main() {
@@ -40,4 +59,7 @@ func main() {
 	g("Hello from g")
 
 	// TODO: there are other example patterns you could do
+	my_function2("Hello from", "my_function2")
+	my_function3("Hello", "from", "my_function3")
+	fmt.Println(my_function4("Hello from function 4"))
 }
